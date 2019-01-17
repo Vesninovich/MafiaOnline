@@ -1,0 +1,28 @@
+#chat {
+    border: 1px solid black;
+    /* display: flex;
+    flex-direction: column; */
+    height: 100%;
+    width: 100%;
+}
+
+#messages {
+    border-bottom: 1px solid black;
+    height: 70%;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+#newmessage {
+    height: 100%;
+}
+
+.chat-message {
+    border: 1px solid gray;
+    margin: 4px;
+    padding: 4px;
+}
+
+.own-message {
+    text-align: right;
+}
