@@ -1,7 +1,6 @@
 @color_chat: #333333;
 #chat {
-    margin-left: 1px;
-    padding: 2px;
+    padding: 15px 10px;
     outline: 1px solid #0a0a0a;
     /* display: flex;
     flex-direction: column; */
@@ -9,23 +8,25 @@
     width: 100%;
     background: @color_chat;}
 #messages {
-    /*outline: 1px solid black;*/
     height: 70%;
     width: 100%;
     overflow-y: scroll;}
 #messages::-webkit-scrollbar {display: none;}
 #newmessage {
-    margin-top: 7px;
+    margin-top: 15px;
     margin-left: 5px;
+    margin-bottom: 35px;
     height: 100%;}
 #textarea_NewMessage {
     background: @color_chat + #999999;
+    width: 78%;
     resize: none;
     margin-bottom: 3px;}
 #button_NewMessage {
     display: block;
     float: right;
-    margin: 5px;}
+    margin-top: 5px;
+    margin-right: 5px;}
 .chat-message {
     border: 1px solid gray;
     margin: 4px;

@@ -11,9 +11,11 @@ class App extends Component {
         <div id="Name_of_Game">
           <h1>MafiaOnline</h1>
         </div>
+        <canvas id="Game"> </canvas>
         <div id="chat-wrapper">
           <Chat messages={messages} user={users[0]}></Chat>
         </div>
+        <button id="chat_open_close">&uarr;&darr;</button>
         <GameField id="game-field"></GameField>
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -29,6 +31,7 @@ class App extends Component {
             Learn React
           </a>
         </header> */}
+        <footer id="footer">&copy;&nbsp;Веснин&nbsp;Д.В.,&nbsp;Кузьминых&nbsp;И.С.,&nbsp;Кузьминых&nbsp;М.Н.,&nbsp;2019</footer>
       </div>
     );
   }
