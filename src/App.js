@@ -8,6 +8,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div id="Name_of_Game">
+          <h1>MafiaOnline</h1>
+        </div>
         <div id="chat-wrapper">
           <Chat messages={messages} user={users[0]}></Chat>
         </div>

@@ -1,7 +1,7 @@
 #chat {
-  margin: 5px;
+  margin-left: 1px;
   padding: 2px;
-  outline: 1px solid #000000;
+  outline: 1px solid #0a0a0a;
   /* display: flex;
     flex-direction: column; */
   height: 100%;
@@ -13,6 +13,9 @@
   height: 70%;
   width: 100%;
   overflow-y: scroll;
+}
+#messages::-webkit-scrollbar {
+  display: none;
 }
 #newmessage {
   margin-top: 7px;
@@ -27,7 +30,7 @@
 #button_NewMessage {
   display: block;
   float: right;
-  margin: 5px 10px;
+  margin: 5px;
 }
 .chat-message {
   border: 1px solid gray;

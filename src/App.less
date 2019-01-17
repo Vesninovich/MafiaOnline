@@ -1,20 +1,27 @@
+@color_all: #0a0a0a;
 * {
     margin: 0;
     padding: 0;
-}
+    outline: none;}
 html, body {
     height: 100%;
     width: 100%;}
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.95em;
-}
+    background: @color_all;}
 .App {
     display: block;
     float: left;
-    height: 100%;
-  }
-  
+    min-height: 100%;  }
+#Name_of_Game {
+    display: block;
+    background: @color_all;
+    margin-top: 5px;
+    margin-left: 5px;
+    /* float: left; */}
+#Name_of_Game h1 {
+    color: #c70000;}
 #chat-wrapper {
 height: 100%;
 max-width: 500px;
