@@ -5,7 +5,7 @@ class GameField extends Component {
     render() {
         return (
             <div id="field-wrapper">
-                дима лох
+                
             </div>
         );
     }

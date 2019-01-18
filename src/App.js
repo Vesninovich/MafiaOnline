@@ -11,12 +11,12 @@ class App extends Component {
         <div id="Name_of_Game">
           <h1>MafiaOnline</h1>
         </div>
-        <canvas id="Game"> </canvas>
         <div id="chat-wrapper">
           <Chat messages={messages} user={users[0]}></Chat>
         </div>
-        <button id="chat_open_close">&uarr;&darr;</button>
-        <GameField id="game-field"></GameField>
+        <div id="game-field">
+          <GameField></GameField>
+        </div>
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>

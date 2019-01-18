@@ -16,6 +16,7 @@ class Chat extends Component {
                 </Message>
             )}
         </div>
+        <hr></hr>
         <NewMessage></NewMessage>
       </div>
     );
