@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './GameField.css';
-import Civilian from './../Images/Cards/civilian.png';
-import Doctor from './../Images/Cards/doctor.png';
-import Mistress from './../Images/Cards/mistress.png';
-import Commissioner from './../Images/Cards/commissioner.png';
-import Mafia from './../Images/Cards/mafia.png';
-import Maniac from './../Images/Cards/maniac.png';
-import Card from './../Images/Cards/card.png';
+import Civilian from './../../Images/Cards/civilian.png';
+import Doctor from './../../Images/Cards/doctor.png';
+import Mistress from './../../Images/Cards/mistress.png';
+import Commissioner from './../../Images/Cards/commissioner.png';
+import Mafia from './../../Images/Cards/mafia.png';
+import Maniac from './../../Images/Cards/maniac.png';
+import Card from './../../Images/Cards/card.png';
 
 class GameField extends Component {
     render() {

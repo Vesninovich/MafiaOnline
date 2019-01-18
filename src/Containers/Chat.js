@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ChatComponent from '../Chat/Chat';
+import ChatComponent from '../Components/Chat/Chat';
 
 function mapStateToProps(state, ownProps) {
     return {

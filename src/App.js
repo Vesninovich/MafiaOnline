@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Chat from './Containers/Chat';
 import './App.css';
-import GameField from './GameField/GameField';
+import GameField from './Components/GameField/GameField';
 
 class App extends Component {
   render() {
