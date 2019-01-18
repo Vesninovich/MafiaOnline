@@ -1,28 +1,62 @@
+@width_max: 1400px;
+@width_min: 960px;
+@width_game-field: @width_max / 5 * 4;
+@height_main: 880px;
+@color_all: #0a0a0a;
+@color_chat: #333333;
+
 * {
     margin: 0;
     padding: 0;
-}
+    outline: none;}
 html, body {
     height: 100%;
-    width: 100%;}
+    background: @color_all;}
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.95em;
-}
+    font-size: 0.95em;}
 .App {
+    width: @width_max;
+    margin: 0 auto;
+    min-height: 100%;}
+#Name_of_Game {
+    display: block;
+    background: @color_all;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100%;}
+#Name_of_Game h1 {
+    color: #c70000;
+    margin-bottom: 20px;}
+#chat-wrapper {
     display: block;
     float: left;
-    height: 100%;
-  }
-  
-#chat-wrapper {
-height: 100%;
-max-width: 500px;
-min-width: 250px;
-width: 20%;
-}
-
+    width: @width_max / 5 - 20px;
+    height: @height_main - 20px;;
+    margin-bottom: 15px;}
+/* #chat_open_close {
+    position: fixed;
+    width: 40px;
+    height: 35px;
+    left: 5px;
+    bottom: 5px;
+    background: @color_chat;
+    color: @color_chat + #777777;
+    font-size: 1.4em;
+    border: none;
+    box-shadow: 0 0 10px @color_chat + #777777;} */
 #game-field {
-height: 100%;
-width: 100%;
-}
+    outline: 1px solid gray;
+    display: block;
+    float: right;
+    width: @width_game-field;
+    height:@height_main;
+    margin-bottom: 20px;}
+#footer {
+    clear: both;
+    padding: 10px;
+    height: 100%;
+    width: @width_max - 20px;
+    background: @color_all + #111111;
+    box-shadow: 0 0 10px @color_all + #111111;
+    color: gray;}

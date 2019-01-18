@@ -1,28 +1,65 @@
 * {
   margin: 0;
   padding: 0;
+  outline: none;
 }
 html,
 body {
   height: 100%;
-  width: 100%;
+  background: #0a0a0a;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.95em;
 }
 .App {
+  width: 1400px;
+  margin: 0 auto;
+  min-height: 100%;
+}
+#Name_of_Game {
   display: block;
-  float: left;
-  height: 100%;
+  background: #0a0a0a;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 100%;
+}
+#Name_of_Game h1 {
+  color: #c70000;
+  margin-bottom: 20px;
 }
 #chat-wrapper {
-  height: 100%;
-  max-width: 500px;
-  min-width: 250px;
-  width: 20%;
+  display: block;
+  float: left;
+  width: 260px;
+  height: 860px;
+  margin-bottom: 15px;
 }
+/* #chat_open_close {
+    position: fixed;
+    width: 40px;
+    height: 35px;
+    left: 5px;
+    bottom: 5px;
+    background: @color_chat;
+    color: @color_chat + #777777;
+    font-size: 1.4em;
+    border: none;
+    box-shadow: 0 0 10px @color_chat + #777777;} */
 #game-field {
+  outline: 1px solid gray;
+  display: block;
+  float: right;
+  width: 1120px;
+  height: 880px;
+  margin-bottom: 20px;
+}
+#footer {
+  clear: both;
+  padding: 10px;
   height: 100%;
-  width: 100%;
+  width: 1380px;
+  background: #1b1b1b;
+  box-shadow: 0 0 10px #1b1b1b;
+  color: gray;
 }

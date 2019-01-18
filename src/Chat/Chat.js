@@ -24,6 +24,7 @@ class Chat extends Component {
                 </Message>
             )}
         </div>
+        <hr></hr>
         <NewMessage sendMessage={this.sendMessage}></NewMessage>
       </div>
     );
