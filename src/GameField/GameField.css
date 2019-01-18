@@ -1,5 +1,54 @@
 #field-wrapper {
-    height: 100%;
-    text-align: center;
-    width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: relative;
+}
+#header {
+  height: 100px;
+  width: 1400px;
+}
+img {
+  height: 200px;
+}
+#other_players {
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  width: 880px;
+  text-align: center;
+}
+#other_players img {
+  height: 150px;
+  display: inline-block;
+}
+#playing_field {
+  display: block;
+  height: 610px;
+  width: 1080px;
+  /* outline: 1px solid grey; */
+  margin-top: 20px;
+}
+#text_of_play {
+  margin: 20px;
+  width: 1000px;
+  height: 50%;
+  background: transparent;
+  resize: none;
+  padding: 20px;
+  text-align: center;
+  color: gray;
+  font-size: 1.5em;
+}
+#voting {
+  text-align: center;
+  width: 1080px;
+}
+#voting img {
+  margin-top: 10px;
+  height: 150px;
+}
+#action_button {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 250px;
 }

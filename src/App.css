@@ -32,7 +32,7 @@ body {
   display: block;
   float: left;
   width: 260px;
-  height: 880px;
+  height: 860px;
   margin-bottom: 15px;
 }
 /* #chat_open_close {
@@ -51,7 +51,7 @@ body {
   display: block;
   float: right;
   width: 1120px;
-  height: 900px;
+  height: 880px;
   margin-bottom: 20px;
 }
 #footer {

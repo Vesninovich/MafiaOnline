@@ -1,0 +1,54 @@
+@width_max: 1400px;
+@width_min: 960px;
+@width_game-field: @width_max / 5 * 4;
+@height_main: 880px;
+@color_all: #0a0a0a;
+
+#field-wrapper {
+    height: 100%;
+    padding: 20px;
+    position: relative;}
+#header {
+    height: 100px;
+    width: @width_max;}
+img {
+    height: 200px;}
+#other_players {
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    width: @width_game-field - 200px - 40px;
+    text-align: center;}
+#other_players img {
+    height: 150px;
+    display: inline-block;}
+#playing_field {
+    display: block;
+    height: @height_main - 270px;
+    width: @width_game-field - 40px;
+    /* outline: 1px solid grey; */
+    margin-top: 20px;}
+#text_of_play {
+    margin: 20px;
+    width: @width_game-field - 120px;
+    height: 50%;
+    background: transparent;
+    resize: none;
+    padding: 20px;
+    text-align: center;
+    color: gray;
+    font-size: 1.5em;}
+#voting {
+    text-align: center;
+    width: @width_game-field - 40px;}
+#voting img {
+    margin-top: 10px;
+    height: 150px;}
+#action_button {
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 250px;
+}
+#vote {
+    
+}
