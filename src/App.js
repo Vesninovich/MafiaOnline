@@ -45,7 +45,7 @@ class App extends Component {
               <img id="players_4" src={Card} alt="other players"></img>
               <img id="players_5" src={Card} alt="other players"></img>
             </div>
-            <div id="game-field" hidden>
+            <div id="game-field">
               <GameField></GameField>
             </div>
         </div>
