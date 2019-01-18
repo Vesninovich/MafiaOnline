@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import NewMessage from './NewMessage';
+import NewMessage from '../../Containers/NewMessage';
 import Message from './Message';
 import './Chat.css';
 
@@ -18,9 +18,8 @@ class Chat extends Component {
             {this.props.messages.map(message =>
                 <Message
                     key={`message-${message.id}`}
-                    username={message.player.name}
-                    text={message.text}
-                    isOwnMessage={message.player === this.props.player}>
+                    username={message.name}
+                    text={message.text}>
                 </Message>
             )}
         </div>
@@ -32,16 +31,16 @@ class Chat extends Component {
 }
 
 Chat.propTypes = {
-  messages: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired,
-      player: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired
-      }).isRequired
-    }).isRequired
-  ).isRequired
+  // messages: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     id: PropTypes.number.isRequired,
+  //     text: PropTypes.string.isRequired,
+  //     player: PropTypes.shape({
+  //       id: PropTypes.number.isRequired,
+  //       name: PropTypes.string.isRequired
+  //     }).isRequired
+  //   })
+  // ).isRequired
 }
 
 export default Chat;

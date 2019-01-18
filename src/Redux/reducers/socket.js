@@ -1,12 +1,22 @@
-import { SETUP_SOCKET } from '../actionTypes';
-import setupSocket from '../../socket';
+import * as types from '../actionTypes';
 
 export function socket(state = null, action) {
     switch (action.type) {
-        case SETUP_SOCKET:
-            return state === null
-                ? setupSocket(action.dispatch, action.name, action.address, action.port)
-                : state;
+        case types.ADD_SOCKET:
+            return state || action.socket || state;
+        case types.SEND_MESSAGE:
+            state && state.send(JSON.stringify({
+                type: types.ADD_MESSAGE,
+                text: action.text,
+                name: action.name
+            }));
+            return state;
+        case types.SEND_NEW_PLAYER:
+            state && state.send(JSON.stringify({
+                type: types.ADD_PLAYER,
+                name: action.name
+            }));
+            return state;
         default:
             return state;
     }

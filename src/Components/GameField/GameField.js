@@ -12,7 +12,7 @@ class GameField extends Component {
     render() {
         return (
             <div id="field-wrapper">
-                <div class="header">
+                {/* <div class="header">
                     <img id="card_of_me" src={Civilian} alt="me"></img>
                     <div id="other_players">
                         <img id="other_players_1" src={Card} alt="other players"></img>
@@ -39,7 +39,7 @@ class GameField extends Component {
                         <button id="for_mistress" hidden>Уединиться</button>
                     </div>
                     
-                </div>
+                </div> */}
             </div>
         );
     }

@@ -19,9 +19,9 @@ class Message extends Component {
 }
 
 Message.propTypes = {
-    isOwnMessage: PropTypes.bool.isRequired,
-    username: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired
+    isOwnMessage: PropTypes.bool,//.isRequired,
+    username: PropTypes.string,//.isRequired,
+    text: PropTypes.string,//.isRequired
 }
 
 export default Message;

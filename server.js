@@ -10,9 +10,17 @@ function Player(id, name, socket) {
 
 players = [];
 let playerId = 0;
+let messageId = 0;
 
 function addPlayer(name, socket) {
     players.push(new Player(++playerId, name, socket));
+    socket.send(JSON.stringify({
+        type: 'JOIN_GAME',
+        player: {
+            id: playerId,
+            name: name
+        }
+    }));
     sendDataToAll({
         type: 'ADD_PLAYER',
         player: {
@@ -40,6 +48,7 @@ function sendMessage(text, name = 'server') {
     sendDataToAll({
         type: 'ADD_MESSAGE',
         message: {
+            id: messageId++,
             name: name,
             text
         }
@@ -47,7 +56,8 @@ function sendMessage(text, name = 'server') {
 }
 
 function sendDataToAll(data) {
-    players.forEach(player => player.socket.send(JSON.stringify(data)));
+    players.forEach(player => player.socket.readyState === 1
+        && player.socket.send(JSON.stringify(data)));
 }
 
 const socketServer = new ws.Server({ port: WS_PORT });
@@ -56,19 +66,27 @@ socketServer.on('connection', (socket, req) => {
    
     socket.on('message', data => {
         const action = JSON.parse(data);
-
+        console.log(action);
         switch (action.type) {
             case 'ADD_PLAYER':
                 addPlayer(action.name, socket);
                 break;
             case 'ADD_MESSAGE':
-                sendMessage(action.message.text, action.message.name);
+                sendMessage(action.text, action.name);
                 break;
             case 'REMOVE_PLAYER':
                 removePlayer(action.player.id);
                 break;
             default:
                 break;
-       }
-   });
+        }
+    });
+
+    socket.on('close', () => {
+        const index = players.findIndex(player => player.socket === socket);
+        if (index >= 0) {
+            sendMessage(`player ${players[index].name} left`);
+            players.splice(index, 1);
+        }
+    });
 });

@@ -4,6 +4,7 @@ import './App.css';
 import GameField from './Components/GameField/GameField';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">

@@ -1,19 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
 import reducer from './Redux/rootReducer'
 import './index.css';
 import App from './App';
-// import setupSocket from './socket';
+import setupSocket from './socket';
 
-// const store = createStore(reducer);
+const name = prompt('Name?');
+const address = prompt('Address?');
+const port = prompt('Port?');
 
-// const socket = setupSocket(store.dispatch);
+const store = createStore(reducer);
+
+const socket = setupSocket(store.dispatch,
+    name || 'Peedor', address || 'localhost', +(port || '4000'));
 
 ReactDOM.render(
-    <Provider store={createStore(reducer, applyMiddleware(thunk))}>
+    <Provider store={store}>
         <App />
     </Provider>,
     document.getElementById('root')
