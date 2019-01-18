@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Chat.css';
 
 class Message extends Component {
@@ -9,12 +10,18 @@ class Message extends Component {
         return (
             <div className={className}>
                 <span className="message-username">
-                    {this.props.message.user.name}:<span> </span>
+                    {this.props.username}:<span> </span>
                 </span>
-                <span className="message-text">{this.props.message.text}</span>
+                <span className="message-text">{this.props.text}</span>
             </div>
         );
     }
+}
+
+Message.propTypes = {
+    isOwnMessage: PropTypes.bool.isRequired,
+    username: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
 }
 
 export default Message;

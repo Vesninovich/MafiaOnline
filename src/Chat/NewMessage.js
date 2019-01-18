@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 import './Chat.css';
 
-class NewMessage extends Component {
+class NewMessageComponent extends Component {
     render() {
         return (
-            <div id="newmessage">
+            <form id="newmessage">
                 <textarea id="textarea_NewMessage"></textarea>
-                <button id="button_NewMessage">Написать</button>
-            </div>
+                <button id="button_NewMessage" onClick={this.props.sendMessage}>
+                    Написать
+                </button>
+            </form>
         );
     }
 }
 
-export default NewMessage;
+NewMessageComponent.propTypes = {
+    sendMessage: PropTypes.func.isRequired
+}
+
+export default NewMessageComponent;

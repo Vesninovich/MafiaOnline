@@ -1,4 +1,4 @@
-export const users = [
+export const players = [
     {
         id: 0,
         name: 'Dima$'
@@ -12,27 +12,27 @@ export const users = [
 export const messages = [
     {
         id: 0,
-        user: users[0],
+        player: players[0],
         text: 'asdasd'
     },
     {
         id: 1,
-        user: users[1],
+        player: players[1],
         text: 'asdasd'
     },
     {
         id: 2,
-        user: users[1],
+        player: players[1],
         text: 'asdasd'
     },
     {
         id: 3,
-        user: users[0],
+        player: players[0],
         text: 'asdasd'
     },
     {
         id: 4,
-        user: users[1],
+        player: players[1],
         text: 'asdasd'
     }
 ];

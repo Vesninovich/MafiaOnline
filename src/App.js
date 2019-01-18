@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Chat from './Chat/Chat';
-import { users, messages } from './mocks';
+import Chat from './Containers/Chat';
 import './App.css';
 import GameField from './GameField/GameField';
 
@@ -9,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <div id="chat-wrapper">
-          <Chat messages={messages} user={users[0]}></Chat>
+          <Chat playerId={0}></Chat>
         </div>
         <GameField id="game-field"></GameField>
         {/* <header className="App-header">
