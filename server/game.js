@@ -37,7 +37,9 @@ function checkContinueVotes() {
         0
     );
 
-    if (countReady >= activeCount) {
+    const whoDies = checkWhoDies();
+
+    if (whoDies && countReady >= activeCount) {
         if (gameState === states.MAFIA) {
             sendMessage('Мафия сделала выбор. Начинается отсчёт до утра.');
             startCountdown(switchToDay);
@@ -214,7 +216,7 @@ function restartGame() {
 }
 
 function generateRoles(count) {
-    let mafia = Math.round(count / 3);
+    let mafia = Math.floor(count / 3);
     const roles = new Array(count);
     for (let i = 0; i < roles.length; i++) {
         if (mafia > 0) {
