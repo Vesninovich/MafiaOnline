@@ -26,7 +26,8 @@ class NewMessageComponent extends Component {
             <div id="newmessage">
                 <textarea
                     id="textarea_NewMessage"
-                    onChange={e => this.updateMessage(e.target.value)}>
+                    onChange={e => this.updateMessage(e.target.value)}
+                    value={this.state.input}>
                 </textarea>
                 <button id="button_NewMessage" onClick={this.sendMessage}>
                     Написать

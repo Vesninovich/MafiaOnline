@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
-import { sendMessage } from '../Redux/actions/chat';
+import { sendMessage } from '../Actions/chat';
 import NewMessageComponent from '../Components/Chat/NewMessage';
 
 function mapStateToProps(state, ownProps) {
-    // console.log(state.socket);
     return {
         player: state.game.player
     };

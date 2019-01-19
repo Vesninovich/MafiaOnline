@@ -10,9 +10,11 @@
     background: @color_chat;
     position: relative;}
 #messages {
-    height: 100%;
+    height: min-content;
+    max-height: 90%;
     width: 100%;
-    overflow-y: scroll;}
+    overflow-y: scroll;
+}
 hr {
     background: grey;
     border: 0;
@@ -21,6 +23,8 @@ hr {
     margin-top: -80px;}
 #messages::-webkit-scrollbar {display: none;}
 #newmessage {
+    border-top: 1px solid gray;
+    padding-top: 15px;
     position: absolute;
     bottom: 15px;}
 #textarea_NewMessage {

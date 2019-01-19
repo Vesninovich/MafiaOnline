@@ -1,17 +1,42 @@
 import React, { Component } from 'react';
-import './GameField.css';
-import Civilian from './../../Images/Cards/civilian.png';
-import Doctor from './../../Images/Cards/doctor.png';
-import Mistress from './../../Images/Cards/mistress.png';
-import Commissioner from './../../Images/Cards/commissioner.png';
-import Mafia from './../../Images/Cards/mafia.png';
-import Maniac from './../../Images/Cards/maniac.png';
-import Card from './../../Images/Cards/card.png';
+import PlayerCard from '../../Containers/PlayerCard'
 
-class GameField extends Component {
+import './Game.css';
+
+let cardId = 0;
+
+class GameFieldComponent extends Component {
+
+    renderMain() {
+        const mainPlayer = this.props.mainPlayer;
+        return mainPlayer && (
+            <PlayerCard id={mainPlayer.id}></PlayerCard>
+        );
+    }
+
     render() {
+        const mainPlayer = this.props.mainPlayer;
+        const otherPlayers = this.props.otherPlayers;
         return (
             <div id="field-wrapper">
+                {mainPlayer && <PlayerCard id={mainPlayer.id}></PlayerCard>}
+                {
+                    otherPlayers && otherPlayers.map(player =>
+                        <PlayerCard id={player.id} key={`card-${cardId++}`} />
+                    )
+                }
+                {
+                    this.props.gameState === 'WAIT_START'
+                    ? <button
+                        id="ready-button"
+                        onClick={this.props.setReady}>
+                        READY
+                      </button>
+                    : null
+                }
+                {/* {this.props.otherPlayers.map(
+                    player => <PlayerCard id={player.id}></PlayerCard>
+                )} */}
                 {/* <div class="header">
                     <img id="card_of_me" src={Civilian} alt="me"></img>
                     <div id="other_players">
@@ -45,4 +70,4 @@ class GameField extends Component {
     }
 }
 
-export default GameField;
+export default GameFieldComponent;
