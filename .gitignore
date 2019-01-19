@@ -65,3 +65,4 @@ typings/
 
 # почему этого сразу не было
 package_lock.json
+build/
