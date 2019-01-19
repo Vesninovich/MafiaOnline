@@ -4,7 +4,7 @@ const states = require('./states');
 
 const MIN_PLAYERS = 4;
 
-const players = [];
+let players = [];
 let playerId = 0;
 let messageId = 0;
 
@@ -200,9 +200,17 @@ function endGame(whoWon) {
         sendMessage('Последний мафиозник мертв.');
         sendMessage('Мирные жители подебили.');
     }
-    sendMessage('Перезапускайте сервер теперь.');
+    sendMessage('Игровая сессия обнулена, обновите страницу для того, чтобы начать заново.');
     gameState = states.END;
     sendDataToAll({ type: 'SET_STATE', gameState });
+    restartGame();
+}
+
+function restartGame() {
+    players.forEach(player => player.socket.close());
+    playerId = 0;
+    messageId = 0;
+    gameState = states.WAIT_START;
 }
 
 function generateRoles(count) {

@@ -22,6 +22,17 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>This is how mafia works</title>
+        <script>
+            function confirmUnload(event) {
+                var msg = "Вы действительно хотите покинуть страницу? Изменения не будут сохранены.";
+
+                (event || window.event).returnValue = msg;
+                return msg;
+            }
+
+            window.addEventListener("beforeunload", confirmUnload);
+            window.addEventListener("onbeforeunload", confirmUnload);
+        </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
