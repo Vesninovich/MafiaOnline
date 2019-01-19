@@ -7,9 +7,9 @@ import './index.css';
 import App from './App';
 import setupSocket from './socket';
 
-// const name = prompt('Name?');
-// const address = prompt('Address?');
-// const port = prompt('Port?');
+const name = prompt('Name?');
+const address = prompt('Address?');
+const port = prompt('Port?');
 
 const store = createStore(reducer);
 
@@ -18,7 +18,9 @@ const store = createStore(reducer);
 // );
 const socket = setupSocket(
     store.dispatch,
-    Math.floor(10000 + Math.random() * 90000)
+    name || 'user-' + Math.floor(10000 + Math.random() * 90000),
+    address || 'localhost',
+    port || 4000
 );
 
 ReactDOM.render(
