@@ -20,7 +20,7 @@ class PlayerCardComponent extends Component {
     }
 
     renderVotes() {
-        return this.props.status === 'INACTIVE' ? null : (
+        return (
             this.props.votes.map(name =>
                 <span key={`vote-${name}`}>
                     {name}

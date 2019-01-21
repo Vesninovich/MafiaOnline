@@ -17,21 +17,6 @@ class App extends Component {
         <div id="game-field">
           <GameField></GameField>
         </div>
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header> */}
-        <footer id="footer">&copy;&nbsp;Веснин&nbsp;Д.В.,&nbsp;Кузьминых&nbsp;И.С.,&nbsp;Кузьминых&nbsp;М.Н.,&nbsp;2019</footer>
       </div>
     );
   }

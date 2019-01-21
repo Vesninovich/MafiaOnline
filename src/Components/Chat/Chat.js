@@ -29,17 +29,4 @@ class Chat extends Component {
   }
 }
 
-Chat.propTypes = {
-  // messages: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     id: PropTypes.number.isRequired,
-  //     text: PropTypes.string.isRequired,
-  //     player: PropTypes.shape({
-  //       id: PropTypes.number.isRequired,
-  //       name: PropTypes.string.isRequired
-  //     }).isRequired
-  //   })
-  // ).isRequired
-}
-
 export default Chat;

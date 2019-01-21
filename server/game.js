@@ -313,18 +313,6 @@ function setVote(idFrom, idFor) {
 function canVote(id) {
     const player = players.find(player => player.id === id);
     return player && player.status === Player.statuses.ACTIVE;
-    // if (!player) {
-    //     return false;
-    // }
-    // switch (player.role) {
-    //     case Player.roles.CIVILIAN:
-    //         return gameState === states.CIVILIANS;
-    //     case Player.roles.MAFIA:
-    //         return gameState === states.CIVILIANS
-    //             || gameState === states.MAFIA;
-    //     default:
-    //         return false;
-    // }
 }
 
 function switchPlayerReady(id) {
