@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import NewMessage from '../../Containers/NewMessage';
 import Message from './Message';
 import './Chat.css';
@@ -17,7 +16,7 @@ class Chat extends Component {
         <div id="messages">
             {this.props.messages.map(message =>
                 <Message
-                    key={`message-${message.id}`}
+                    key={`message-${message.messageId}`}
                     username={message.name}
                     text={message.text}>
                 </Message>

@@ -328,19 +328,30 @@ function switchPlayerReady(id) {
                 updatePlayer(player);
             }
         }
-        checkReadyVotes();
+        // checkReadyVotes();
     }
 }
 
-function sendMessage(text, name = 'server') {
-    sendDataToAll({
+function sendMessage(text, id = -1) {
+    // sendDataToAll({
+    //     type: 'ADD_MESSAGE',
+    //     message: {
+    //         id: messageId++,
+    //         name,
+    //         text
+    //     }
+    // });
+    const player = players.find(player => player.id === id);
+    const data = {
         type: 'ADD_MESSAGE',
         message: {
-            id: messageId++,
-            name,
+            messageId: messageId++,
+            name: player ? player.name : 'server',
             text
         }
-    });
+    }
+    // players.forEach(player => player.id !== id && player.send(data));
+    players.forEach(player => player.send(data));
 }
 
 function sendDataToAll(data) {
@@ -374,13 +385,13 @@ function handleMessage(data, socket) {
                 addPlayer(data.name, socket);
             }
             break;
-        case 'SEND_MESSAGE':
-            sendMessage(data.text, data.name);
+        case 'ADD_MESSAGE':
+            sendMessage(data.text, data.id);
             break;
         case 'REMOVE_PLAYER':
             removePlayer(data.player.id);
             break;
-        case 'SEND_VOTE':
+        case 'SET_VOTE':
             if (canVote(data.vote.from)) {
                 setVote(data.vote.from, data.vote.for);
                 checkContinueVotes();
@@ -396,8 +407,8 @@ function handleMessage(data, socket) {
 
 function handleClose(socket) {
     const index = players.findIndex(player => player.socket === socket);
-    const id = players[index].id;
     if (index >= 0) {
+        const id = players[index].id;
         sendMessage(`player ${players[index].name} left`);
         players.splice(index, 1);
         sendDataToAll({ type: 'REMOVE_PLAYER', player: { id } });

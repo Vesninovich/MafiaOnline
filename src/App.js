@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Chat from './Containers/Chat';
 import './App.css';
 import GameField from './Containers/GameField';
 
-class App extends Component {
+import { addPlayer } from './Actions/game';
+
+class AppComponent extends Component {
+
+  componentDidMount() {
+    this.props.joinGame();
+  }
 
   render() {
     return (
@@ -22,4 +29,11 @@ class App extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    joinGame: () => dispatch(addPlayer(ownProps.name))
+  }
+}
+
+const App = connect(null, mapDispatchToProps)(AppComponent);
 export default App;

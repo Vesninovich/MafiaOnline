@@ -1,14 +1,14 @@
-export const ADD_MESSAGE = 'ADD_MESSAGE';
+import ActionType from './ActionType';
 
-export const ADD_PLAYER = 'ADD_PLAYER';
-export const REMOVE_PLAYER = 'REMOVE_PLAYER';
-export const UPDATE_PLAYER = 'UPDATE_PLAYER';
+export const ADD_MESSAGE = new ActionType('ADD_MESSAGE', { shouldBeSent: true });
 
-export const ADD_SOCKET = 'ADD_SOCKET';
-export const SEND_MESSAGE = 'SEND_MESSAGE';
-export const SEND_VOTE = 'SEND_VOTE';
-export const SET_READY = 'SET_READY';
-export const SEND_NEW_PLAYER = 'SEND_NEW_PLAYER';
+export const ADD_PLAYER = new ActionType('ADD_PLAYER', { shouldBeSent: true });
+export const REMOVE_PLAYER = new ActionType('REMOVE_PLAYER');
+export const UPDATE_PLAYER = new ActionType('UPDATE_PLAYER');
 
-export const JOIN_GAME = 'JOIN_GAME';
-export const SET_STATE = 'SET_STATE';
+export const SET_VOTE = new ActionType('SET_VOTE', { shouldBeSent: true });
+export const SET_READY = new ActionType('SET_READY', { shouldBeSent: true });
+// export const SEND_NEW_PLAYER = new ActionType('SEND_NEW_PLAYER');
+
+export const JOIN_GAME = new ActionType('JOIN_GAME', { shouldBeSent: true });
+export const SET_STATE = new ActionType('SET_STATE');

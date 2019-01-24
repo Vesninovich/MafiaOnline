@@ -3,6 +3,9 @@ import ChatComponent from '../Components/Chat/Chat';
 
 function mapStateToProps(state, ownProps) {
     return {
+        // messages: state.messages.map(message =>
+        //     Object.assign({}, message, { name: state.players[message.id] })
+        // ),
         messages: state.messages,
         player: state.players[ownProps.playerId]
     };

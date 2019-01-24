@@ -10,7 +10,7 @@ class Message extends Component {
         return (
             <div className={className}>
                 <span className="message-username">
-                    {this.props.username}:<span> </span>
+                    {this.props.username ? `${this.props.username}: ` : null}{/*<span> </span>*/}
                 </span>
                 <span className="message-text">{this.props.text}</span>
             </div>

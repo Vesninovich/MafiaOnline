@@ -10,7 +10,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
     return { 
-        send: (name, text) => dispatch(sendMessage(text, name))
+        // send: (name, text) => dispatch(sendMessage(text, name))
+        send: (id, text) => dispatch(sendMessage(text, id))
     }
 }
 
@@ -18,7 +19,8 @@ function mergeProps(stateProps, dispatchProps, ownProps) {
     return {
         ...stateProps,
         ...dispatchProps,
-        onSend: text => dispatchProps.send(stateProps.player.name, text)
+        // onSend: text => dispatchProps.send(stateProps.player.name, text)
+        onSend: text => dispatchProps.send(stateProps.player.id, text)
     }
 }
 
