@@ -11,7 +11,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch, ownProps) {
     return { 
         // send: (name, text) => dispatch(sendMessage(text, name))
-        send: (id, text) => dispatch(sendMessage(text, id))
+        send: (id, text) => text && dispatch(sendMessage(text, id))
     }
 }
 

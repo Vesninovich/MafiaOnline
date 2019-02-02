@@ -330,6 +330,9 @@ function switchPlayerReady(id) {
 }
 
 function sendMessage(text, id = -1) {
+    if (!text) {
+        return;
+    }
     const player = players.find(player => player.id === id);
     const data = {
         type: 'ADD_MESSAGE',
