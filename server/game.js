@@ -328,19 +328,11 @@ function switchPlayerReady(id) {
                 updatePlayer(player);
             }
         }
-        // checkReadyVotes();
+        checkReadyVotes();
     }
 }
 
 function sendMessage(text, id = -1) {
-    // sendDataToAll({
-    //     type: 'ADD_MESSAGE',
-    //     message: {
-    //         id: messageId++,
-    //         name,
-    //         text
-    //     }
-    // });
     const player = players.find(player => player.id === id);
     const data = {
         type: 'ADD_MESSAGE',
@@ -350,7 +342,6 @@ function sendMessage(text, id = -1) {
             text
         }
     }
-    // players.forEach(player => player.id !== id && player.send(data));
     players.forEach(player => player.send(data));
 }
 
@@ -378,7 +369,6 @@ function handleEvent(action, data, socket) {
 
 function handleMessage(data, socket) {
     console.log(data);
-    // console.log(players);
     switch (data.type) {
         case 'ADD_PLAYER':
             if (gameState === states.WAIT_START) {
