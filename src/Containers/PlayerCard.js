@@ -14,11 +14,11 @@ function getRole(mainPlayer, player) {
     return 'CIVILIAN';
 }
 
-function getVotes(mainPlayer, player, players) {
+function getVotes(mainPlayer, player, players, gameState) {
     if (!mainPlayer || !player) return [];
-    if (mainPlayer.role === player.role 
-        || mainPlayer.role === 'MAFIA'
-        || mainPlayer.status === 'DEAD') {
+    if (gameState === 'CIVILIANS' ||
+        mainPlayer.role === 'MAFIA' ||
+        mainPlayer.status === 'DEAD') {
 
         return player.votes.reduce((names, vote) => {
             const player = players.find(player => player.id === vote);
@@ -43,7 +43,7 @@ function mapState(state, ownProps) {
         displayedRole: getRole(mainPlayer, player),
         voted: player && mainPlayer
                       && player.votes.find(vote => vote === mainPlayer.id),
-        votes: getVotes(mainPlayer, player, state.players)
+        votes: getVotes(mainPlayer, player, state.players, state.game.gameState)
     }
 }
 
