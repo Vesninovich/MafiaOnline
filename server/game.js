@@ -1,6 +1,6 @@
 const Player = require('./player');
-
 const states = require('./states');
+const texts = require('./texts.json');
 
 const MIN_PLAYERS = 4;
 
@@ -17,12 +17,12 @@ function checkReadyVotes() {
     );
 
     if (countReady >= players.length && countReady >= MIN_PLAYERS) {
-        sendMessage('Все готовы. Начинается отсчёт до начала игры.');
+        sendMessage(texts.game_start);
         startCountdown(startGame);
     }
     else if (countDown) {
         stopCountdown();
-        sendMessage('Отсчет отменен');
+        sendMessage(texts.countdown_stop);
     }
 }
 
@@ -41,17 +41,17 @@ function checkContinueVotes() {
 
     if (whoDies && countReady >= activeCount) {
         if (gameState === states.MAFIA) {
-            sendMessage('Мафия сделала выбор. Начинается отсчёт до утра.');
+            sendMessage(texts.mafia_voted);
             startCountdown(switchToDay);
         }
         else if (gameState === states.CIVILIANS) {
-            sendMessage('Люди сделали выбор. Начинается отсчёт до вечера.');
+            sendMessage(texts.civilians_voted);
             startCountdown(switchToNight);
         }
     }
     else if (countDown) {
         stopCountdown();
-        sendMessage('Отсчет отменен');
+        sendMessage(texts.countdown_stop);
     }
 }
 
@@ -122,9 +122,13 @@ function switchToNight() {
             const dead = checkWhoDies();
             killPlayer(dead);
             clearVotes();
-            sendMessage(`${dead.name} был повешен сегодня людьми.`);
-            const role = dead.role === Player.roles.MAFIA ? 'мафиозником' : 'мирным';
-            sendMessage(`Он был ${role}.`);
+            sendMessage(dead.name + texts.was_hanged);
+            if (dead.role === Player.roles.MAFIA) {
+                sendMessage(texts.was_mafia);
+            }
+            else {
+                sendMessage(texts.was_civilian);
+            }
         }
         gameState = states.MAFIA;
         sendDataToAll({ type: 'SET_STATE', gameState });
@@ -140,8 +144,7 @@ function switchToNight() {
             }
         });
         if (!checkEnd()) {
-            sendMessage('Все засыпают. Мафия просыпается.');
-            sendMessage('Сейчас проголосуют, кто не проснется');
+            sendMessage(texts.mafia_turn);
         }
     }
 }
@@ -151,7 +154,7 @@ function switchToDay() {
         const dead = checkWhoDies();
         killPlayer(dead);
         clearVotes();
-        sendMessage(`${dead.name} был убит мафией.`);
+        sendMessage(dead.name + texts.was_killed);
         gameState = states.CIVILIANS;
         sendDataToAll({ type: 'SET_STATE', gameState });
         players.forEach(player => {
@@ -161,8 +164,7 @@ function switchToDay() {
                 }
         });
         if (!checkEnd()) {
-            sendMessage('Мафия просыпается. Все просыпаются. Мафия тоже.');
-            sendMessage('Голосуем, кого повесим.');
+            sendMessage(texts.civilians_turn);
         }
     }
 }
@@ -192,17 +194,12 @@ function checkEnd() {
 function endGame(whoWon) {
     players.forEach(player => killPlayer(player));
     if (whoWon === Player.roles.MAFIA) {
-        sendMessage(
-            'Мирных жителей теперь меньше, чем мафиозников. ' +
-            'Теперь вы живете на уралмаше.'
-        );
-        sendMessage('Мафия подебила.');
+        sendMessage(texts.mafia_win);
     }
     if (whoWon === Player.roles.CIVILIAN) {
-        sendMessage('Последний мафиозник мертв.');
-        sendMessage('Мирные жители подебили.');
+        sendMessage(texts.civilians_win);
     }
-    sendMessage('Игровая сессия обнулена, обновите страницу для того, чтобы начать заново.');
+    sendMessage(texts.game_end);
     gameState = states.END;
     sendDataToAll({ type: 'SET_STATE', gameState });
     restartGame();
@@ -265,7 +262,7 @@ function addPlayer(name, socket) {
         type: 'ADD_PLAYER',
         player: player.data()
     });
-    sendMessage(`player ${name} joined`);
+    sendMessage(name + texts.joined_game);
 }
 
 function removePlayer(id) {
@@ -278,7 +275,7 @@ function removePlayer(id) {
             id
         }
     });
-    sendMessage(`player ${name} left`);
+    sendMessage(name + texts.left_game);
 }
 
 function killPlayer(player) {
@@ -399,7 +396,7 @@ function handleClose(socket) {
     const index = players.findIndex(player => player.socket === socket);
     if (index >= 0) {
         const id = players[index].id;
-        sendMessage(`player ${players[index].name} left`);
+        sendMessage(players[index].name + texts.left_game);
         players.splice(index, 1);
         sendDataToAll({ type: 'REMOVE_PLAYER', player: { id } });
     }
