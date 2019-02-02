@@ -10,6 +10,7 @@ class NewMessageComponent extends Component {
             input: ''
         };
         this.sendMessage = this.sendMessage.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     updateMessage(input) {
@@ -21,12 +22,20 @@ class NewMessageComponent extends Component {
         this.setState({ input: '' });
     }
 
+    handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            this.sendMessage();
+        }
+    }
+
     render() {
         return (
             <div id="newmessage">
                 <textarea
                     id="textarea_NewMessage"
                     onChange={e => this.updateMessage(e.target.value)}
+                    onKeyPress={this.handleKeyPress}
                     value={this.state.input}>
                 </textarea>
                 <button id="button_NewMessage" onClick={this.sendMessage}>
